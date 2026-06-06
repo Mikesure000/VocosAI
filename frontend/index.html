@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VocosAI — Voice of Consumer OS</title>
+    <script>
+      // 生产环境 API 地址注入
+      // 在 GitHub Actions 中通过 sed 替换为 https://api.meetmore.cc
+      window.VOCOS_API_BASE = '__VOCOS_API_BASE__';
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

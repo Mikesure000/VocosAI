@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+.vite/
+
+# Database
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+backend/data/
+
+# Uploads
+backend/data/uploads/
+backend/data/exports/
+
+# Environment
+.env
+.env.local
+.env.production
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Test
+test-parse.ts
+e2e-test.mjs

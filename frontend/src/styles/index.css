@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-brand-50: #f0fdf4;
+  --color-brand-100: #dcfce7;
+  --color-brand-200: #bbf7d0;
+  --color-brand-300: #86efac;
+  --color-brand-400: #4ade80;
+  --color-brand-500: #22c55e;
+  --color-brand-600: #16a34a;
+  --color-brand-700: #15803d;
+  --color-brand-800: #166534;
+  --color-brand-900: #14532d;
+  --color-brand-950: #052e16;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  font-family: 'PingFang SC', 'Microsoft YaHei', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(128, 128, 128, 0.3); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(128, 128, 128, 0.5); }
+
+/* Dark mode scrollbar */
+.dark ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.15); }
+.dark ::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.25); }
+
+/* Card hover effects */
+.MuiCard-root {
+  transition: box-shadow 0.2s ease, transform 0.15s ease !important;
+}
+.MuiCard-root:hover {
+  transform: translateY(-1px);
+}
+
+/* Button ripple */
+.MuiButton-root {
+  transition: all 0.15s ease !important;
+}
+
+/* Table row hover */
+.MuiTableRow-root {
+  transition: background-color 0.12s ease;
+}
+
+/* Smooth page transitions */
+.fade-enter { opacity: 0; transform: translateY(8px); }
+.fade-enter-active { opacity: 1; transform: translateY(0); transition: all 0.2s ease-out; }
+
+/* Responsive helpers */
+@media (max-width: 600px) {
+  .hide-mobile { display: none !important; }
+}
+@media (min-width: 601px) {
+  .hide-desktop { display: none !important; }
+}
+
+/* Print styles */
+@media print {
+  .MuiAppBar-root, .MuiDrawer-root, .MuiButton-root { display: none !important; }
+}
