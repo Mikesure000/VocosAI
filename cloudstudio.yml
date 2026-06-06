@@ -1,0 +1,24 @@
+name: vocosai-backend
+description: VocosAI - Voice of Consumer OS Backend (Fastify + Prisma + SQLite)
+port: 8787
+
+build:
+  steps:
+    - name: Install dependencies
+      run: cd backend && npm install
+    - name: Generate Prisma client
+      run: cd backend && npx prisma generate
+    - name: Build TypeScript
+      run: cd backend && npm run build
+
+run:
+  command: cd backend && npx prisma db push --accept-data-loss && npx tsx prisma/seed.ts && node dist/index.js
+
+env:
+  HOST: "0.0.0.0"
+  PORT: "8787"
+  NODE_ENV: "production"
+  DATABASE_URL: "file:./data/vocosai.sqlite"
+  JWT_SECRET: "vocosai-production-jwt-2026-change-me"
+  VOCOS_MODEL_MODE: "mock"
+  VOCOS_PRIMARY_PROVIDER: "deepseek"
