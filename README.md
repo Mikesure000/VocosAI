@@ -1,5 +1,8 @@
 # VocosAI — Voice of Consumer OS
 
+> ⚠️ **此仓库已迁移至 [Mikesure000/vocos.meetmore.cc](https://github.com/Mikesure000/vocos.meetmore.cc)**  
+> 在线地址: [https://vocos.meetmore.cc](https://vocos.meetmore.cc)
+
 > 基于 AI 大模型的消费者评论驱动内容策略生产系统
 
 ## 项目简介
