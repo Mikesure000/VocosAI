@@ -5,7 +5,11 @@ on:
     branches: [main]
     paths:
       - 'frontend/**'
+      - '.github/workflows/deploy-frontend.yml'
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build-and-deploy:
@@ -18,14 +22,23 @@ jobs:
         with:
           node-version: 22
 
+      - name: Inject API base URL
+        run: |
+          sed -i "s|__VOCOS_API_BASE__|https://api.meetmore.cc|g" frontend/index.html
+
       - name: Install dependencies
         run: cd frontend && npm ci
 
       - name: Build
         run: cd frontend && npm run build
 
+      - name: Copy CNAME
+        run: echo "vocos.meetmore.cc" > frontend/dist/CNAME
+
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./frontend/dist
+          publish_branch: gh-pages
+          force_orphan: true
